@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { ErrorComponent } from './pages/error.component';
 import { NotfoundComponent } from './pages/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardComponent } from './_cards/card/card.component';
+import { PrimeModule } from './_prime/prime.module';
+
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { CardComponent } from './_cards/card/card.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PrimeModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
