@@ -1,4 +1,8 @@
 <div class="header-body">
+      ]<p-sidebar [(visible)]="visible"  [transitionOptions]="'400ms'">
+            Content
+        </p-sidebar>
+        <p-button type="button" (click)="visible = true" icon="pi pi-arrow-right" class="mr-3 ml-3"></p-button>
       <button routerLink="/transactions/newloan" pButton pRipple type="button" label="Newloan" class="p-button-help"></button>
       <button routerLink="/transactions/redeem" pButton pRipple type="button" label="Redeem" class="p-button-secondary"></button>
       <button routerLink="/transactions/partial" pButton pRipple type="button" label="Partial" class="p-button-success"></button>
