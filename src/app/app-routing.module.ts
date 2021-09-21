@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login.component';
 
 const routes: Routes = [
   {
-    path: 'transaction',
+    path: 'transactions',
     loadChildren: () =>
       import('./transactions/transaction.module').then(
         (m) => m.TransactionModule
