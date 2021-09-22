@@ -3,29 +3,30 @@ import { MenuItem } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DialogBarangayComponent } from '../_dialogs/dialog.barangay.component';
 import { DialogCityComponent } from '../_dialogs/dialog.city.component';
+import { DialogPawnerComponent } from '../_dialogs/dialog.pawner.component';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['../_sass/layout.scss'],
-  providers:[DialogService]
+  providers: [DialogService]
 
 })
 export class FooterComponent implements OnInit, OnDestroy {
 
   settingItems: MenuItem[];
-  cityDialogRef:DynamicDialogRef;
-  barangayDialogRef:DynamicDialogRef;
+  cityDialogRef: DynamicDialogRef;
+  barangayDialogRef: DynamicDialogRef;
 
-  constructor(public dialogService:DialogService) { }
+  constructor(public dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.settingItems = [
       {
         tooltipOptions: {
           tooltipLabel: "City",
-          tooltipPosition:"left"
-      },
+          tooltipPosition: "left"
+        },
         icon: 'pi pi-pencil',
         command: () => {
           // this.messageService.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
@@ -36,21 +37,26 @@ export class FooterComponent implements OnInit, OnDestroy {
         icon: 'pi pi-refresh',
         tooltipOptions: {
           tooltipLabel: "Barangay",
-          tooltipPosition:"left"
-      },
+          tooltipPosition: "left"
+        },
         command: () => {
           // this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
           this.showBarangay()
         }
-        
+
       },
       {
         icon: 'pi pi-trash',
         command: () => {
           // this.messageService.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
+          this.showPawner();
         },
-        tooltip: "Add Cityasdfasdfasdf"
+        tooltipOptions: {
+          tooltipLabel: "Pawner",
+          tooltipPosition: "left"
+        },
       },
+
       {
         icon: 'pi pi-upload',
         routerLink: ['/fileupload'],
@@ -65,33 +71,42 @@ export class FooterComponent implements OnInit, OnDestroy {
     ]
   }
 
-  showCity(){
-    this.cityDialogRef = this.dialogService.open(DialogCityComponent,{
+  showCity() {
+    this.cityDialogRef = this.dialogService.open(DialogCityComponent, {
       header: 'Add New City',
       width: 'auto',
-      contentStyle: {"max-height": "500px", "overflow": "auto", "width":"100%"},
-      style:{"margin-top":"-30rem"},
-      baseZIndex: 10000,   
-    } )
+      contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
+      style: { "margin-top": "-30rem" },
+      baseZIndex: 10000,
+    })
   }
 
-  showBarangay(){
-    this.cityDialogRef = this.dialogService.open(DialogBarangayComponent,{
+  showBarangay() {
+    this.cityDialogRef = this.dialogService.open(DialogBarangayComponent, {
       header: 'Barangay',
       width: 'auto',
-      contentStyle: {"max-height": "500px", "overflow": "auto", "width":"100%"},
-      style:{"margin-top":"-30rem"},
-      baseZIndex: 10000,   
-    } )
+      contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
+      style: { "margin-top": "-30rem" },
+      baseZIndex: 10000,
+    })
+  }
+  showPawner() {
+    this.cityDialogRef = this.dialogService.open(DialogPawnerComponent, {
+      header: 'Pawner',
+      width: 'auto',
+      contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
+      style: { "margin-top": "-30rem" },
+      baseZIndex: 10000,
+    })
   }
 
   ngOnDestroy(): void {
-    if(this.cityDialogRef)
+    if (this.cityDialogRef)
       this.cityDialogRef.close();
-    
-    if(this.barangayDialogRef)
+
+    if (this.barangayDialogRef)
       this.barangayDialogRef.close();
-    
+
   }
 
 }

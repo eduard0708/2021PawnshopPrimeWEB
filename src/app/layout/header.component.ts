@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +10,10 @@ export class HeaderComponent implements OnInit {
   visible: boolean = false;
   items: MenuItem[];
 
-  constructor() { }
+  constructor(private primeConfig:PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primeConfig.ripple = true;
     this.items = [
       {
         label: 'Newloan',
@@ -41,6 +42,7 @@ export class HeaderComponent implements OnInit {
       },
     
     ]
+
    
   }
 

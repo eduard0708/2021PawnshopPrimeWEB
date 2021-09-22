@@ -21,6 +21,7 @@ import { PrimeModule } from './_prime/prime.module';
 import { DialogCityComponent } from './_dialogs/dialog.city.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogBarangayComponent } from './_dialogs/dialog.barangay.component';
+import { DialogPawnerComponent } from './_dialogs/dialog.pawner.component';
 
 
 
@@ -42,6 +43,7 @@ import { DialogBarangayComponent } from './_dialogs/dialog.barangay.component';
     CardComponent,
     DialogCityComponent,
     DialogBarangayComponent,
+    DialogPawnerComponent,
   ],
   imports: [
     BrowserModule,

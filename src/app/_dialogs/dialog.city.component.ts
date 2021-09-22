@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PrimeNGConfig } from 'primeng/api';
 import { City } from '../_models/city';
 
 
@@ -19,7 +20,7 @@ export class DialogCityComponent implements OnInit {
     {"cityId":2,"cityName":"Passi"}
   ];
   constructor(
-   private fb:FormBuilder
+   private fb:FormBuilder, private primeConfig:PrimeNGConfig
   ) { 
     this.cityForm = this.fb.group({
       cityName:['', Validators.required]
@@ -27,7 +28,7 @@ export class DialogCityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.primeConfig.ripple = true;
     // this.cityForm.controls.cityName.valueChanges.subscribe()
   }
   reset(){
