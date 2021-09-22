@@ -5,7 +5,7 @@
       <div class="p-field p-col-12 p-md-4 pt-5">
         <span class="p-float-label">
           <input
-          [autofocus]="true"
+            [autofocus]="true"
             #cityRef
             type="text"
             id="city"
@@ -36,8 +36,12 @@
         ></button>
       </div>
     </div>
-    <div class="city-table">
+    <div class="city-table card">
       <p-table
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]=[5,10,20,30,50]
         [value]="cityDataSource"
         styleClass="p-datatable-sm"
         responsiveLayout="scroll"

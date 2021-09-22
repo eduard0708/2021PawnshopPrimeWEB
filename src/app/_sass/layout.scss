@@ -14,10 +14,11 @@
   right: 0;
   width: 100vw;
   background-color: rgb(10, 103, 224);
-  
-.speeddial-container {
-    position: absolute;
-    margin-left: 96.5%;
-  }  
-}
 
+  .speeddial-container {
+    margin: -13rem 48% 0;
+    position: absolute;
+    z-index: 1000;
+    transform: scale(0.7); 
+  }
+}

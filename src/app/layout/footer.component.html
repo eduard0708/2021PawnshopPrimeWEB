@@ -1,16 +1,22 @@
 <div class="footer-body">
   <div class="speeddial-container">
-    <p-speedDial
+    <!-- <p-speedDial
       showIcon="pi pi-bars"
       hideIcon="pi pi-times"
       [transitionDelay]="80"
       [model]="settingItems"
-      [radius]="120"
-      direction="up-left"
+      direction="up"
       type="quarter-circle"
       buttonClassName="p-button-success"
       className="speeddial-left"
+    ></p-speedDial> -->
+    <p-speedDial
+      [model]="settingItems"
+      direction="up"
+      [transitionDelay]="80"
+      showIcon="pi pi-bars"
+      hideIcon="pi pi-times"
+      buttonClassName="p-button-primary"
     ></p-speedDial>
   </div>
-  
 </div>

@@ -1,0 +1,111 @@
+<div class="city-wrapper">
+  <form [formGroup]="cityForm" autocomplete="off">
+    <div class="city-body box shadow-8">
+      <div class="city-header bg-primary shadow-5 text-base">
+        <h3>City Settings</h3>
+      </div>
+      <div class="city-content">
+        <div class="p-field p-col-12 p-md-4 pt-5">
+          <span class="p-float-label">
+            <input
+              #cityRef
+              type="text"
+              id="city"
+              pInputText
+              formControlName="cityName"
+            />
+            <label for="city">City Name</label>
+          </span>
+        </div>
+        <div class="p-field p-col-12 p-md-4 pt-5">
+          <button
+            (click)="add()"
+            [disabled]="isAddCity"
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-plus"
+            class="p-button-rounded p-button-success"
+          ></button>
+        </div>
+        <div class="p-field p-col-12 p-md-4 pt-5">
+          <button
+            (click)="reset()"
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-refresh"
+            class="p-button-rounded p-button-danger"
+          ></button>
+        </div>
+        <div class="p-field p-col-12 p-md-4 pt-5">
+          <button
+            (click)="home()"
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-home"
+            class="p-button-rounded p-button-info"
+          ></button>
+        </div>
+      </div>
+      <div class="city-table">
+        <p-table
+          #ptable
+          [value]="cityDataSource"
+          styleClass="p-datatable-sm"
+          [showCurrentPageReport]="true"
+          [paginator]="true"
+          [rows]="5"
+          [rowsPerPageOptions]="[5, 10, 25, 50]"
+          [globalFilterFields]="['cityId', 'cityName']"
+        >
+          <ng-template pTemplate="caption">
+            <span class="p-input-icon-left p-ml-auto">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="
+                  ptable.filterGlobal($any($event.target).value, 'contains')
+                "
+                placeholder="Search keyword"
+              />
+            </span>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr style="height: 3.2rem">
+              <th style="max-width: 15%">Id</th>
+              <th style="max-width: 50%">City Name</th>
+              <th style="max-width: 25%; text-align: center">Action</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-city>
+            <tr>
+              <td style="max-width: 3rem;">{{ city.cityId }}</td>
+              <td style="">{{ city.cityName }}</td>
+              <td style="padding-left: 5rem;">
+                <button
+                  tabindex="-1"
+                  pButton
+                  pRipple
+                  icon="pi pi-pencil"
+                  class="p-button-rounded p-button-info mr-2"
+                ></button>
+                <button
+                  tabindex="-1"
+                  pButton
+                  pRipple
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-danger"
+                ></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <div class="city-footer"></div>
+    </div>
+  </form>
+</div>
+<p-toast position="top-right"></p-toast>

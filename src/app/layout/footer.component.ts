@@ -29,9 +29,9 @@ export class FooterComponent implements OnInit, OnDestroy {
           tooltipPosition: "left"
         },
         icon: 'pi pi-pencil',
+        routerLink:'/setting/city',
         command: () => {
           // this.messageService.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
-          this.showCity();
         }
       },
       {
@@ -40,9 +40,10 @@ export class FooterComponent implements OnInit, OnDestroy {
           tooltipLabel: "Barangay",
           tooltipPosition: "left"
         },
+        routerLink:'/setting/barangay',
         command: () => {
           // this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
-          this.showBarangay()
+     
         }
 
       },
@@ -76,8 +77,8 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.cityDialogRef = this.dialogService.open(DialogCityComponent, {
       header: 'Add New City',
       width: 'auto',
-      contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
-      style: { "margin-top": "-10rem" },
+      // contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
+      // style: { "margin-top": "-10rem" },
       baseZIndex: 10000,
     })
   }

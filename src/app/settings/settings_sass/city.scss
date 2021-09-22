@@ -1,0 +1,31 @@
+form {
+  transform: scale(0.8); 
+  margin-top: -1rem;
+  .city-body {
+    max-width: 50%;
+    .city-header{
+      border-radius: 5px;
+      position: relative;
+      margin: -2.5rem auto 0;
+      width: 95%;
+      text-align: center;
+      h3{
+        font-family: monospace;
+        padding: .5rem;
+      }
+    }
+    margin: 0 auto;
+    padding: .5rem;
+    .city-content {
+      margin: -1rem auto 0;
+      width: 23rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;   
+    }
+    .city-table {
+      margin-top: 1rem;
+      padding: 0 1rem;   
+    }
+  }
+}

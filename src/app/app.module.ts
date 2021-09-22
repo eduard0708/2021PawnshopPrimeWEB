@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +45,7 @@ import { DialogPawnerComponent } from './_dialogs/dialog.pawner.component';
     DialogCityComponent,
     DialogBarangayComponent,
     DialogPawnerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -51,12 +53,16 @@ import { DialogPawnerComponent } from './_dialogs/dialog.pawner.component';
     FormsModule,
     ReactiveFormsModule,
     PrimeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
 
   ],
   providers: [],
   entryComponents: [
-		DialogCityComponent
+		DialogCityComponent,
+    DialogBarangayComponent,
+    DialogCityComponent,
+    DialogPawnerComponent
 	],
   bootstrap: [AppComponent]
 })
