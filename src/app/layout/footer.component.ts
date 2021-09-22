@@ -17,6 +17,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   settingItems: MenuItem[];
   cityDialogRef: DynamicDialogRef;
   barangayDialogRef: DynamicDialogRef;
+  pawnerDialogRef: DynamicDialogRef;
 
   constructor(public dialogService: DialogService) { }
 
@@ -76,7 +77,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       header: 'Add New City',
       width: 'auto',
       contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
-      style: { "margin-top": "-30rem" },
+      style: { "margin-top": "-10rem" },
       baseZIndex: 10000,
     })
   }
@@ -86,16 +87,16 @@ export class FooterComponent implements OnInit, OnDestroy {
       header: 'Barangay',
       width: 'auto',
       contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
-      style: { "margin-top": "-30rem" },
+      style: { "margin-top": "-10rem" },
       baseZIndex: 10000,
     })
   }
   showPawner() {
     this.cityDialogRef = this.dialogService.open(DialogPawnerComponent, {
       header: 'Pawner',
-      width: 'auto',
-      contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
-      style: { "margin-top": "-30rem" },
+      width: '50%',
+      // contentStyle: { "max-height": "500px", "overflow": "auto", "width": "100%" },
+      style: { "margin-top": "-10rem" },
       baseZIndex: 10000,
     })
   }
@@ -106,6 +107,9 @@ export class FooterComponent implements OnInit, OnDestroy {
 
     if (this.barangayDialogRef)
       this.barangayDialogRef.close();
+      
+    if (this.pawnerDialogRef)
+      this.pawnerDialogRef.close();
 
   }
 

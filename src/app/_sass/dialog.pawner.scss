@@ -1,0 +1,26 @@
+.pawner-body {
+  .pawner-content {
+    .pawner-info {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 1.5rem;
+    }
+    .pawner-address {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1.5fr 2fr;
+      column-gap: 1.5rem;
+    }
+    .pawner-footer {
+        padding: .5rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .p-button {
+        width: 10rem;
+      }
+    }
+  }
+}

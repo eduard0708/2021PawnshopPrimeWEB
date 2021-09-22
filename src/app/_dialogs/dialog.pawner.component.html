@@ -1,1 +1,140 @@
-<p>dialog-pawner works!</p>
+<form [formGroup]="pawnerForm" autocomplete="off">
+  <div class="pawner-body">
+    <div class="panwer-header"></div>
+    <div class="pawner-content card">
+      <div class="pawner-info">
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <input
+              #firstNameRef
+              [autofocus]="true"
+              formControlName="firstName"
+              type="text"
+              id="firstName"
+              class="p-inputtext-sm"
+              pInputText
+            />
+            <label for="firstName">First Name</label>
+          </span>
+        </div>
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <input
+              formControlName="lastName"
+              type="text"
+              id="lastName"
+              class="p-inputtext-sm"
+              pInputText
+            />
+            <label for="lastName">Last Name</label>
+          </span>
+        </div>
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <input
+              formControlName="contactNumber"
+              type="text"
+              id="contactNumber"
+              class="p-inputtext-sm"
+              pInputText
+            />
+            <label for="contactNumber">Contact Number</label>
+          </span>
+        </div>
+      </div>
+      <div class="pawner-address">
+        <div class="p-inputgroup">
+          <p-dropdown
+            class="p-inputgroup"
+            [autofocus]="true"
+            #cityRef
+            id="cityDropDown"
+            panelStyleClass="city-dropdown"
+            [options]="cities"
+            formControlName="selectedCity"
+            optionLabel="cityName"
+            [filter]="true"
+            filterBy="cityName"
+            [showClear]="true"
+            placeholder="Select City"
+          >
+            <ng-template let-city pTemplate="item">
+              <div class="city-item">
+                <div>{{ city.cityName }}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+        <div class="p-inputgroup">
+          <p-dropdown
+            class="p-inputgroup"
+            [autofocus]="true"
+            #cityRef
+            id="cityDropDown"
+            panelStyleClass="city-dropdown"
+            [options]="cities"
+            formControlName="selectedCity"
+            optionLabel="cityName"
+            [filter]="true"
+            filterBy="cityName"
+            [showClear]="true"
+            placeholder="Select City"
+          >
+            <ng-template let-city pTemplate="item">
+              <div class="city-item">
+                <div>{{ city.cityName }}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+        <div class="p-inputgroup">
+          <input
+            formControlName="completeAddress"
+            type="text"
+            id="completeAddress"
+            class="p-inputtext-sm"
+            placeholder="Complete Address"
+            pInputText
+          />
+        </div>
+      </div>
+      <div class="pawner-footer">
+        <div>
+          <button
+            (click)="save()"
+            pButton
+            pRipple
+            icon="pi pi-save"
+            styleClass="p-button-sm"
+            type="button"
+            label="Save"
+            class="p-button-rounded p-button-success"
+          ></button>
+        </div>
+        <div>
+          <button
+            (click)="reset()"
+            pButton
+            pRipple
+            icon="pi pi-refresh"
+            styleClass="p-button-sm"
+            type="button"
+            label="Reset"
+            class="p-button-rounded p-button-info"
+          ></button>
+        </div>
+        <div>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-plus"
+            styleClass="p-button-sm"
+            type="button"
+            label="Address"
+            class="p-button-rounded p-button-danger"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
