@@ -18,14 +18,19 @@ form {
     padding: .5rem;
     .barangay-content {
       margin: -1rem auto 0;
-      width: 75%;
+      width: 90%;
       display: flex;
       align-items: center;
       justify-content: space-around;   
-    }
+ }
+   
     .barangay-table {
       margin-top: 1rem;
       padding: 0 1rem;   
     }
   }
+}
+
+:host ::ng-deep .bgy-drop.p-dropdown {
+  width: 13rem;
 }

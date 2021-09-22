@@ -12,7 +12,7 @@ import { AddressService } from '../_services/address.service';
   providers: [MessageService],
 })
 export class BarangayComponent implements OnInit {
-  @ViewChild('cityRef') cityRef: ElementRef;
+  @ViewChild('dropDownRef') dropDownRef;
   cityForm: FormGroup;
   cityName: string;
   cityDataSource: City[] = [];
@@ -33,7 +33,7 @@ export class BarangayComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.cityRef.nativeElement.focus();
+      this.dropDownRef.focus();
     }, 100);
     this.primeConfig.ripple = true;
     this.loadCities();
@@ -46,7 +46,7 @@ export class BarangayComponent implements OnInit {
   reset() {
     this.cityForm.controls.cityName.setValue('');
     this.cityForm.reset();
-    this.cityRef.nativeElement.focus();
+    this.dropDownRef.focus();
   }
 
   add() {
@@ -66,7 +66,7 @@ export class BarangayComponent implements OnInit {
     }
     this.cityForm.controls.cityName.setValue('');
     this.cityForm.reset();
-    this.cityRef.nativeElement.focus();
+    this.dropDownRef.focus();
     this.cityDataSource = [];
     this.loadCities();
   }

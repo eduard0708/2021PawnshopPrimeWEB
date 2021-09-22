@@ -6,11 +6,11 @@
       </div>
       <div class="barangay-content">
         <div class="p-field pt-5">
-          <p-dropdown
+          <p-dropdown class="pdd"
             [autofocus]="true"
-            #cityRef
+            #dropDownRef
             id="cityDropDown"
-            panelStyleClass="city-dropdown"
+            styleClass="bgy-drop"
             [options]="cityDataSource"
             formControlName="selectedCity"
             optionLabel="cityName"
