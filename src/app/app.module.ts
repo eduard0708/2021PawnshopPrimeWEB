@@ -18,6 +18,7 @@ import { NotfoundComponent } from './pages/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardComponent } from './_cards/card/card.component';
 import { PrimeModule } from './_prime/prime.module';
+import { DialogCityComponent } from './_dialogs/dialog.city.component';
 
 
 
@@ -37,6 +38,7 @@ import { PrimeModule } from './_prime/prime.module';
     NotfoundComponent,
     DashboardComponent,
     CardComponent,
+    DialogCityComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,9 @@ import { PrimeModule } from './_prime/prime.module';
 
   ],
   providers: [],
+  entryComponents: [
+		DialogCityComponent
+	],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
