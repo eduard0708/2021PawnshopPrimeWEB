@@ -11,7 +11,8 @@ import { City } from '../_models/city';
 })
 export class DialogBarangayComponent implements OnInit {
   @ViewChild('barangayRef') barangayRef:ElementRef
-  
+  @ViewChild('cityRef') cityRef
+
   barangayForm:FormGroup;
   cityName:string;
   cities:City[]=[
@@ -32,20 +33,17 @@ export class DialogBarangayComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // setTimeout(() => {
-    //   this.cityRef.nativeElement.focus();  
-    // }, 100);
-    
     // this.cityForm.controls.cityName.valueChanges.subscribe()
   }
   reset(){
     this.barangayForm.controls.barangayName.setValue('');
     this.barangayForm.reset();
-
+    this.cityRef.focus();
   }
 
   add(){
     this.barangayForm.controls.barangayName.setValue('');
     this.barangayForm.reset();
+    this.cityRef.focus();
   }
 }

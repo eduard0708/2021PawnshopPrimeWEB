@@ -3,7 +3,7 @@
     <div class="barangay-header"></div>
     <div class="barangay-content">
       <div class="p-field p-col-12 p-md-4 pt-5 ">
-        <p-dropdown [autofocus]="true" id="cityDropDown" panelStyleClass="city-dropdown" [options]="cities" formControlName="selectedCity" optionLabel="cityName" [filter]="true" filterBy="cityName" [showClear]="true" placeholder="Select City">
+        <p-dropdown [autofocus]="true" #cityRef id="cityDropDown" panelStyleClass="city-dropdown" [options]="cities" formControlName="selectedCity" optionLabel="cityName" [filter]="true" filterBy="cityName" [showClear]="true" placeholder="Select City">
             <ng-template let-city pTemplate="item">
                 <div class="city-item">
                     <div>{{city.cityName}}</div>

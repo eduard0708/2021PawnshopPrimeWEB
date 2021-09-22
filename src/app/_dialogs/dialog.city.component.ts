@@ -27,9 +27,6 @@ export class DialogCityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.cityRef.nativeElement.focus();  
-    }, 100);
     
     // this.cityForm.controls.cityName.valueChanges.subscribe()
   }
