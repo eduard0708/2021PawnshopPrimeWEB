@@ -21,7 +21,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.settingItems = [
       {
         tooltipOptions: {
-          tooltipLabel: "Newloan",
+          tooltipLabel: "City",
           tooltipPosition:"left"
       },
         icon: 'pi pi-pencil',
@@ -33,7 +33,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       {
         icon: 'pi pi-refresh',
         tooltipOptions: {
-          tooltipLabel: "Redeem",
+          tooltipLabel: "Barangay",
           tooltipPosition:"left"
       },
         command: () => {
