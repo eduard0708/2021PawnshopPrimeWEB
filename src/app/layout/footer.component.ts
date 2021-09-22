@@ -64,10 +64,11 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   showCity(){
     this.cityDialogRef = this.dialogService.open(DialogCityComponent,{
-      header: 'Choose a Product',
-      width: '70%',
-      contentStyle: {"max-height": "500px", "overflow": "auto"},
-      baseZIndex: 10000
+      header: 'Add New City',
+      width: 'auto',
+      contentStyle: {"max-height": "500px", "overflow": "auto", "width":"100%"},
+      style:{"margin-top":"-30rem"},
+      baseZIndex: 10000,   
     } )
   }
 

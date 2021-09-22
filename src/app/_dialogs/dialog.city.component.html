@@ -1,1 +1,32 @@
-<p>dialog-city works!</p>
+<div class="city-body">
+  <div class="city-header"></div>
+  <div class="city-content">
+    <div class="p-field p-col-12 p-md-4 pt-5">
+      <span class="p-float-label">
+        <input type="text" id="city" pInputText [(ngModel)]="cityName" />
+        <label for="city">City Name</label>
+      </span>
+    </div>
+    <div class="p-field p-col-12 p-md-4 pt-5">
+      <button
+        autofocus
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-plus"
+        class="p-button-rounded p-button-success"
+      ></button>
+    </div>
+    <div class="p-field p-col-12 p-md-4 pt-5">
+      <button
+      (click)="reset()"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-refresh"
+        class="p-button-rounded p-button-danger"
+      ></button>
+    </div>
+  </div>
+  <div class="city-footer"></div>
+</div>

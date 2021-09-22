@@ -19,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardComponent } from './_cards/card/card.component';
 import { PrimeModule } from './_prime/prime.module';
 import { DialogCityComponent } from './_dialogs/dialog.city.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -43,6 +44,8 @@ import { DialogCityComponent } from './_dialogs/dialog.city.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     PrimeModule,
     BrowserAnimationsModule
 
