@@ -1,0 +1,16 @@
+.barangay-body {
+  .barangay-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    :host ::ng-deep .p-dropdown-filter-container{
+     background-color: tomato;
+     width: 15rem !important;
+   }
+  }
+  .barangay-table{
+      margin-top: 2rem;
+      width: 30rem;
+  }
+}

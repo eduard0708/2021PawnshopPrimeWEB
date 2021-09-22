@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogBarangayComponent } from '../_dialogs/dialog.barangay.component';
 import { DialogCityComponent } from '../_dialogs/dialog.city.component';
 
 @Component({
@@ -14,6 +15,7 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   settingItems: MenuItem[];
   cityDialogRef:DynamicDialogRef;
+  barangayDialogRef:DynamicDialogRef;
 
   constructor(public dialogService:DialogService) { }
 
@@ -38,8 +40,9 @@ export class FooterComponent implements OnInit, OnDestroy {
       },
         command: () => {
           // this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
-        },
-        tooltip: "Add Cityasdfasdfasdf"
+          this.showBarangay()
+        }
+        
       },
       {
         icon: 'pi pi-trash',
@@ -72,9 +75,22 @@ export class FooterComponent implements OnInit, OnDestroy {
     } )
   }
 
+  showBarangay(){
+    this.cityDialogRef = this.dialogService.open(DialogBarangayComponent,{
+      header: 'Barangay',
+      width: 'auto',
+      contentStyle: {"max-height": "500px", "overflow": "auto", "width":"100%"},
+      style:{"margin-top":"-30rem"},
+      baseZIndex: 10000,   
+    } )
+  }
+
   ngOnDestroy(): void {
     if(this.cityDialogRef)
       this.cityDialogRef.close();
+    
+    if(this.barangayDialogRef)
+      this.barangayDialogRef.close();
     
   }
 

@@ -20,6 +20,7 @@ import { CardComponent } from './_cards/card/card.component';
 import { PrimeModule } from './_prime/prime.module';
 import { DialogCityComponent } from './_dialogs/dialog.city.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogBarangayComponent } from './_dialogs/dialog.barangay.component';
 
 
 
@@ -40,6 +41,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     CardComponent,
     DialogCityComponent,
+    DialogBarangayComponent,
   ],
   imports: [
     BrowserModule,
