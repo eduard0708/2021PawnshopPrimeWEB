@@ -11,11 +11,14 @@ const routes: Routes = [
         (m) => m.TransactionModule
       ),
   },
-  {path:'dashboard', component:DashboardComponent},
-  {path:'login', component:LoginComponent},
-  {path:'', component:LoginComponent},
-  { path: 'setting', loadChildren: () => import('./settings/setting.module').then(m => m.SettingModule) },
- 
+  {
+    path: 'setting',
+    loadChildren: () =>
+      import('./settings/setting.module').then((m) => m.SettingModule),
+  },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', component: DashboardComponent },
 ];
 
 @NgModule({

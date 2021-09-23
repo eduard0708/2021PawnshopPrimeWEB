@@ -17,13 +17,12 @@ import { LoginComponent } from './pages/login.component';
 import { ErrorComponent } from './pages/error.component';
 import { NotfoundComponent } from './pages/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CardComponent } from './_cards/card/card.component';
 import { PrimeModule } from './_prime/prime.module';
 import { DialogCityComponent } from './_dialogs/dialog.city.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogBarangayComponent } from './_dialogs/dialog.barangay.component';
 import { DialogPawnerComponent } from './_dialogs/dialog.pawner.component';
-
+import { CardMenuComponent } from './_cards/card.menu.component';
 
 
 @NgModule({
@@ -41,10 +40,10 @@ import { DialogPawnerComponent } from './_dialogs/dialog.pawner.component';
     ErrorComponent,
     NotfoundComponent,
     DashboardComponent,
-    CardComponent,
     DialogCityComponent,
     DialogBarangayComponent,
     DialogPawnerComponent,
+    CardMenuComponent,
 
   ],
   imports: [

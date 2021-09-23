@@ -5,16 +5,14 @@ import { AddPawner } from '../_models/addPawer';
 import { Pawner } from '../_models/Pawner';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PawnerService {
+  url:string = environment.baseUrl + 'pawner/';
 
-  url = environment.baseUrl;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
-
-  addPawner(pawner:AddPawner){
-    return this.http.post<Pawner>(this.url ='pawner/add-pawner', pawner);
+  addPawner(pawner: AddPawner) {
+    return this.http.post<Pawner>(this.url + 'add-pawner', pawner);
   }
-
 }

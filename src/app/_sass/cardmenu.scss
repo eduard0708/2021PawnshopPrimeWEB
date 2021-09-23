@@ -1,0 +1,49 @@
+.card-body{
+    height: 10rem;
+    width: 25rem;
+    background: radial-gradient(#1fe4f5, #3fbafe);
+    .card-title{
+        margin-top: -1rem;
+        padding: .5rem;
+        font-weight: bold;
+        font-size: x-large;
+        text-align: center;
+        text-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }   
+
+    .count-wrapper{
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding-right: 1rem;
+        .card-count{
+            // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            padding-top: .9rem;
+            margin-top: -.3rem;
+            color: white;
+            text-align: center;
+            font-size: 1.8rem;
+            border-radius: 50%;
+            height: 4rem;
+            width: 4rem;
+            background-color: tomato;    
+        }   
+    }
+    .card-amount{
+        font-size: x-large;
+        font-weight: bold;
+        margin-left: 2rem;
+        margin-top: -3rem;
+    }
+   .card-footer{
+       position: relative;
+       height: 2rem;
+       margin-bottom: -5rem;
+   } 
+
+}
+.card-body:hover {
+    cursor: pointer;
+    // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}

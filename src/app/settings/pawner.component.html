@@ -8,7 +8,7 @@
         <div class="p-inputgroup p-inputtext-sm">
           <span class="p-float-label">
             <input
-            #firstNameRef
+              #firstNameRef
               type="text"
               id="inputtext"
               pInputText
@@ -28,21 +28,25 @@
             <label for="inputtext">Last Name</label>
           </span>
         </div>
-        <div class="p-inputgroup p-inputtext-sm">
+        <div>
           <span class="p-float-label">
-            <input
-              type="text"
-              id="inputtext"
-              pInputText
+            <p-inputMask
+              class="p-inputgroup"
               formControlName="contactNumber"
-            />
+              mask="(999) 999-9999"
+            ></p-inputMask>
             <label for="inputtext">Contact Number</label>
           </span>
         </div>
       </div>
       <div class="pawner-address">
         <div class="p-inputgroup p-inputtext-sm">
-          <span (click)="addCity()" class="p-inputgroup-addon" style="border-radius: 50%;"><i class="pi pi-plus"></i></span>
+          <span
+            (click)="addCity()"
+            class="p-inputgroup-addon"
+            style="border-radius: 50%"
+            ><i class="pi pi-plus"></i
+          ></span>
           <span class="p-float-label">
             <p-dropdown
               formControlName="city"
@@ -66,7 +70,12 @@
         </div>
         <!-- barayangay-dd -->
         <div class="p-inputgroup p-inputtext-sm">
-          <span (click)="addCity()" class="p-inputgroup-addon" style="border-radius: 50%;"><i class="pi pi-plus"></i></span>
+          <span
+            (click)="addCity()"
+            class="p-inputgroup-addon"
+            style="border-radius: 50%"
+            ><i class="pi pi-plus"></i
+          ></span>
           <span class="p-float-label">
             <p-dropdown
               formControlName="barangay"
@@ -138,3 +147,4 @@
     </div>
   </div>
 </form>
+<p-toast position="top-right"></p-toast>

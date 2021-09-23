@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,7 +20,6 @@ import { PawnerService } from '../_services/pawner.service';
 export class PawnerComponent implements OnInit {
   @ViewChild('firstNameRef') firstNameRef: ElementRef;
   pawnerForm: FormGroup;
-  newPawner: Pawner;
   cities: City[] = [];
   barangays: Barangay[] = [];
   cityBarangay = [];
@@ -66,15 +66,15 @@ export class PawnerComponent implements OnInit {
     this.pawnerService
       .addPawner(this.convertPawner(this.pawnerForm.value))
       .subscribe((pawner) => {
-        this.newPawner = pawner;
-        if (this.newPawner) {
+        const newPawner:Pawner = pawner;
           this.messageService.add({
             severity: 'success',
             summary: 'New Pawner Added',
-            detail: `${this.newPawner.firstName} ${this.newPawner.lastName}`
+            detail: `${newPawner.firstName} ${newPawner.lastName}`
           });
-        }
       });
+      this.pawnerForm.reset();
+      this.firstNameRef.nativeElement.focus();
   }
 
   addCity() {
@@ -85,6 +85,7 @@ export class PawnerComponent implements OnInit {
     this.pawnerForm.reset();
     this.firstNameRef.nativeElement.focus();
   }
+  
   home() {
     this.router.navigateByUrl('');
   }
@@ -96,10 +97,11 @@ export class PawnerComponent implements OnInit {
       barangayName: pawner.barangay.barangayName,
       completeAddress: pawner.completeAddress,
     };
+    const telnumber = (pawner.contactNumber).replace(/\D/g,'');
     const newpawner: AddPawner = {
       firstName: pawner.firstName,
       lastName: pawner.lastName,
-      constactNumber: pawner.contactNumber,
+      contactNumber: telnumber,
       addresses: [address],
     };
 
