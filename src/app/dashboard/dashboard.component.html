@@ -1,3 +1,8 @@
 <div class="card-wrapper">
-    <app-card-menu class="dash-card" [cardData] = "data" *ngFor="let data of cardData"></app-card-menu>
+  <app-card-menu
+    class="dash-card"
+    [cardData]="data"
+    (onTransaction)="showCardTransaction($event)"
+    *ngFor="let data of cardData"
+  ></app-card-menu>
 </div>

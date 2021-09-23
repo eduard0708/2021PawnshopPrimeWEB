@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogBarangayComponent } from './_dialogs/dialog.barangay.component';
 import { DialogPawnerComponent } from './_dialogs/dialog.pawner.component';
 import { CardMenuComponent } from './_cards/card.menu.component';
+import { CardDialogComponent } from './_cards/card.dialog.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { CardMenuComponent } from './_cards/card.menu.component';
     DialogBarangayComponent,
     DialogPawnerComponent,
     CardMenuComponent,
+    CardDialogComponent,
 
   ],
   imports: [

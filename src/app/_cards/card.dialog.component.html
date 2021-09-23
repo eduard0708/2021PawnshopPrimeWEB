@@ -1,0 +1,40 @@
+<div class="dialog-wrapper">
+  <form [formGroup]="cardForm">
+    <div class="dialog-content">
+      <div class="p-field p-col-12 p-md-4 pt-5">
+        <span class="p-float-label">
+          <input
+            #telOrTrsansNumberRef
+            type="number"
+            id="telOrTrsansNumber"
+            pInputText
+            formControlName="telOrTrsansNumber"
+          />
+          <label for="telOrTrsansNumber">Enter Number</label>
+        </span>
+      </div>
+      <div class="p-field p-col-12 p-md-4 pt-5">
+        <button
+          (click)="submit()"
+          [disabled]="isActive"
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-plus"
+          class="p-button-rounded p-button-success"
+        ></button>
+      </div>
+      <div class="p-field p-col-12 p-md-4 pt-5">
+        <button
+          (click)="reset()"
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-refresh"
+          class="p-button-rounded p-button-danger"
+        ></button>
+      </div>
+    </div>
+    <div class="dialog-footer"></div>
+  </form>
+</div>

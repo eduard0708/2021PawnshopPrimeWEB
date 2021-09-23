@@ -1,3 +1,5 @@
+// card menu start
+
 .card-body{
     height: 10rem;
     width: 25rem;
@@ -40,10 +42,38 @@
        height: 2rem;
        margin-bottom: -5rem;
    } 
-
 }
 .card-body:hover {
     cursor: pointer;
     // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
 }
+// card menu end
+
+//card dialog start
+.dialog-wrapper{
+    // height: 12rem;
+    width: 25rem;
+    .dialog-title{
+        text-align: center;
+   }
+    .dialog-content{
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+}
+//card dialog end
+
+//remove button spinner in input number
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  }
+
+

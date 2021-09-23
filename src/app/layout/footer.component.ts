@@ -81,7 +81,6 @@ export class FooterComponent implements OnInit, OnDestroy {
       baseZIndex: 10000,
     })
   }
-
   showBarangay() {
     this.cityDialogRef = this.dialogService.open(DialogBarangayComponent, {
       header: 'Barangay',
