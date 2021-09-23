@@ -1,8 +1,8 @@
 form {
-  transform: scale(0.8); 
-  margin-top: -1rem;
+  transform: scale(0.9); 
+  margin-top: .5rem;
   .city-body {
-    max-width: 50%;
+    max-width: 35%;
     .city-header{
       border-radius: 5px;
       position: relative;
@@ -11,7 +11,7 @@ form {
       text-align: center;
       h3{
         font-family: monospace;
-        padding: .5rem;
+        padding: .7rem;
       }
     }
     margin: 0 auto;

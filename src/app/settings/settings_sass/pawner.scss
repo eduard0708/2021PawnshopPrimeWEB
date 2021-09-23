@@ -1,32 +1,31 @@
-form {
-  transform: scale(0.85);
-  margin-top: 3rem;
+form{
+  margin-top: 2rem;
+
   .pawner-body {
     margin: 0 auto ;
     padding: 0 1rem;
     max-width: 50%;
-    
+    position: relative;
     .pawner-header {
       border-radius: 5px;
-      position: relative;
-      margin: -3.5rem auto 0;
+     
+      margin: -1rem auto ;
       width: 95%;
       text-align: center;
       h3 {
-        font-family: monospace;
         padding: 0.5rem;
       }
     }
     .pawner-content {
       .pawner-info{
-        margin: 3rem auto 0;
+        margin: 3.5rem auto 0;
         width: 100%;
         column-gap: .8rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;  
       }
       .pawner-address{
-        margin: 3rem auto 0;
+        margin: 2.5rem auto 0;
         width: 100%;
         column-gap: .8rem;
         display: grid;
@@ -46,4 +45,8 @@ form {
 
 :host ::ng-deep .address-drop.p-dropdown {
   width: 100%;
+}
+
+:host ::ng-deep .p-button{
+  width: 10rem;
 }

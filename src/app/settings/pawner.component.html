@@ -1,4 +1,4 @@
-<form autocomplete="off">
+<form [formGroup]="pawnerForm" autocomplete="off">
   <div class="pawner-body box shadow-8">
     <div class="pawner-header bg-primary shadow-5 text-base">
       <h3>Pawner Settings</h3>
@@ -7,27 +7,46 @@
       <div class="pawner-info">
         <div class="p-inputgroup p-inputtext-sm">
           <span class="p-float-label">
-            <input type="text" id="inputtext" pInputText />
+            <input
+            #firstNameRef
+              type="text"
+              id="inputtext"
+              pInputText
+              formControlName="firstName"
+            />
             <label for="inputtext">First Name</label>
           </span>
         </div>
         <div class="p-inputgroup p-inputtext-sm">
           <span class="p-float-label">
-            <input type="text" id="inputtext" pInputText />
+            <input
+              type="text"
+              id="inputtext"
+              pInputText
+              formControlName="lastName"
+            />
             <label for="inputtext">Last Name</label>
           </span>
         </div>
         <div class="p-inputgroup p-inputtext-sm">
           <span class="p-float-label">
-            <input type="text" id="inputtext" pInputText />
+            <input
+              type="text"
+              id="inputtext"
+              pInputText
+              formControlName="contactNumber"
+            />
             <label for="inputtext">Contact Number</label>
           </span>
         </div>
       </div>
       <div class="pawner-address">
         <div class="p-inputgroup p-inputtext-sm">
+          <span (click)="addCity()" class="p-inputgroup-addon" style="border-radius: 50%;"><i class="pi pi-plus"></i></span>
           <span class="p-float-label">
             <p-dropdown
+              formControlName="city"
+              (onChange)="selectedCity($event)"
               [autoDisplayFirst]="false"
               [options]="cities"
               styleClass="address-drop"
@@ -45,20 +64,23 @@
             <label for="dropdown">City</label>
           </span>
         </div>
+        <!-- barayangay-dd -->
         <div class="p-inputgroup p-inputtext-sm">
+          <span (click)="addCity()" class="p-inputgroup-addon" style="border-radius: 50%;"><i class="pi pi-plus"></i></span>
           <span class="p-float-label">
             <p-dropdown
+              formControlName="barangay"
               [autoDisplayFirst]="false"
-              [options]="cities"
+              [options]="barangays"
               styleClass="address-drop"
-              optionLabel="cityName"
+              optionLabel="barangayName"
               [filter]="true"
-              filterBy="cityName"
+              filterBy="barangayName"
               [showClear]="true"
             >
-              <ng-template let-city pTemplate="item">
-                <div class="city-item">
-                  <div>{{ city.cityName }}</div>
+              <ng-template let-barangay pTemplate="item">
+                <div class="barangay-item">
+                  <div>{{ barangay.barangayName }}</div>
                 </div>
               </ng-template>
             </p-dropdown>
@@ -67,48 +89,52 @@
         </div>
         <div class="p-inputgroup p-inputtext-sm">
           <span class="p-float-label">
-            <input type="text" id="inputtext" pInputText />
+            <input
+              type="text"
+              id="inputtext"
+              pInputText
+              formControlName="completeAddress"
+            />
             <label for="inputtext">Complete Address</label>
           </span>
         </div>
       </div>
     </div>
     <div class="pawner-footer">
-        <div class="p-inputgroup">
-            <button
-            (click)="save()"
-            pButton
-            pRipple
-            icon="pi pi-save"
-            styleClass=""
-            type="button"
-            label="Save"
-            class="p-button-rounded p-button-success"
-          ></button>
-          </div>
-        <div>
-          <button
-            (click)="reset()"
-            pButton
-            pRipple
-            icon="pi pi-refresh"
-            styleClass="p-button-sm"
-            type="button"
-            label="Reset"
-            class="p-button-rounded p-button-info"
-          ></button>
-        </div>
-        <div>
-          <button
-            pButton
-            pRipple
-            icon="pi pi-home"
-            styleClass="p-button-sm"
-            type="button"
-            label="Home"
-            class="p-button-rounded p-button-primary"
-          ></button>
-        </div>
+      <div>
+        <button
+          (click)="save()"
+          [disabled]="isAdd"
+          pButton
+          pRipple
+          icon="pi pi-save"
+          type="button"
+          label="Save"
+          class="p-button-rounded p-button-success"
+        ></button>
       </div>
+      <div>
+        <button
+          (click)="reset()"
+          pButton
+          pRipple
+          icon="pi pi-refresh"
+          type="button"
+          label="Reset"
+          class="p-button-rounded p-button-danger"
+        ></button>
+      </div>
+      <div>
+        <button
+          (click)="home()"
+          pButton
+          pRipple
+          icon="pi pi-home"
+          type="button"
+          label="Home"
+          class="p-button-rounded p-button-primary"
+        ></button>
+      </div>
+    </div>
   </div>
 </form>

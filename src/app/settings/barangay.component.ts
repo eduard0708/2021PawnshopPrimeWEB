@@ -1,8 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component,  OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
+import { AddBarangay } from '../_models/addbarangay';
 import { City } from '../_models/city';
+import { Barangay } from '../_models/barangay';
 import { AddressService } from '../_services/address.service';
 
 @Component({
@@ -15,9 +17,9 @@ export class BarangayComponent implements OnInit {
   @ViewChild('dropDownRef') dropDownRef;
   barangayForm: FormGroup;
   cityName: string;
+  barangayDataSource: Barangay[] = [];
   cityDataSource: City[] = [];
   isAddCity: boolean = true;
-  loading: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -27,7 +29,7 @@ export class BarangayComponent implements OnInit {
     private messageService: MessageService
   ) {
     this.barangayForm = this.fb.group({
-      selectedCity:[Validators.required],
+      selectedCity: [Validators.required],
       barangayName: ['', Validators.required],
     });
   }
@@ -38,6 +40,7 @@ export class BarangayComponent implements OnInit {
     }, 100);
     this.primeConfig.ripple = true;
     this.loadCities();
+    this.loadBaragays();
 
     this.barangayForm.valueChanges.subscribe(() => {
       this.isAddCity = !this.barangayForm.valid;
@@ -50,36 +53,44 @@ export class BarangayComponent implements OnInit {
   }
 
   add() {
-    if (this.barangayForm.controls.cityName.value !== null || '') {
-      let addCity = {
-        cityName: this.barangayForm.controls.cityName.value,
+    if (this.barangayForm.controls.barangayName.value !== '' && !null) {
+      let brgy = this.barangayForm.value;
+      let newBrgy: AddBarangay = {
+        cityId: +brgy.selectedCity.cityId,
+        barangayName: brgy.barangayName,
       };
-      this.addressService.addCity(addCity).subscribe((city) => {
-        const newCity: City = city as City;
-        if (newCity)
+
+      this.addressService.addBarangay(newBrgy).subscribe((barangay) => {
+        const newBarangay: Barangay = barangay as Barangay;
+        if (newBarangay){
           this.messageService.add({
             severity: 'success',
-            summary: 'New City Added',
-            detail: `City Name: ${newCity.cityName}`,
+            summary: 'New Barangay Added',
+            detail: `Barangay Name: ${newBarangay.barangayName}`,
           });
+          this.barangayDataSource.push(newBarangay);
+        }
+         
       });
     }
-    this.barangayForm.controls.cityName.setValue('');
     this.barangayForm.reset();
     this.dropDownRef.focus();
-    this.cityDataSource = [];
     this.loadCities();
   }
 
   loadCities() {
     this.addressService.getCities().subscribe((cities) => {
-      this.cityDataSource = [... cities];
+      this.cityDataSource = [...cities];
     });
+  }
+  loadBaragays(){
+    this.addressService.getBarangays().subscribe(barangays =>{
+      this.barangayDataSource = barangays as any;
+    })
   }
 
   home() {
     this.cityDataSource = [];
     this.router.navigateByUrl('');
   }
-
 }

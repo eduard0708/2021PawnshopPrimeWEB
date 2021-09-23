@@ -50,30 +50,30 @@ export class CityComponent implements OnInit {
   }
 
   add() {
-    if (this.cityForm.controls.cityName.value !== null || '') {
+    if (this.cityForm.controls.cityName.value !== '' && !null) {
       let addCity = {
         cityName: this.cityForm.controls.cityName.value,
       };
       this.addressService.addCity(addCity).subscribe((city) => {
         const newCity: City = city as City;
-        if (newCity)
+        if (newCity) {
           this.messageService.add({
             severity: 'success',
             summary: 'New City Added',
             detail: `City Name: ${newCity.cityName}`,
           });
+          this.cityDataSource.push(newCity);
+        }
       });
     }
     this.cityForm.controls.cityName.setValue('');
     this.cityForm.reset();
     this.cityRef.nativeElement.focus();
-    this.cityDataSource = [];
-    this.loadCities();
   }
 
   loadCities() {
     this.addressService.getCities().subscribe((cities) => {
-      this.cityDataSource = [... cities];
+      this.cityDataSource = [...cities];
     });
   }
 

@@ -73,13 +73,12 @@
       <div class="barangay-table">
         <p-table
           #ptable
-          [value]="cityDataSource"
+          [value]="barangayDataSource"
           styleClass="p-datatable-sm"
           [showCurrentPageReport]="true"
           [paginator]="true"
           [rows]="5"
-          [rowsPerPageOptions]="[5, 10, 25, 50]"
-          [globalFilterFields]="['cityId', 'cityName']"
+          [globalFilterFields]="['barangayId', 'barangayName']"
         >
           <ng-template pTemplate="caption">
             <span class="p-input-icon-left p-ml-auto">
@@ -97,14 +96,14 @@
           <ng-template pTemplate="header">
             <tr style="height: 3.2rem">
               <th style="max-width: 15%">Id</th>
-              <th style="max-width: 50%">City Name</th>
+              <th style="max-width: 50%">Barangay Name</th>
               <th style="max-width: 25%; text-align: center">Action</th>
             </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-city>
+          <ng-template pTemplate="body" let-barangay>
             <tr>
-              <td style="max-width: 3rem">{{ city.cityId }}</td>
-              <td style="">{{ city.cityName }}</td>
+              <td style="max-width: 3rem">{{ barangay.barangayId }}</td>
+              <td style="">{{ barangay.barangayName }}</td>
               <td style="padding-left: 5rem">
                 <button
                   tabindex="-1"
