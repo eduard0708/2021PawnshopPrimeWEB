@@ -13,7 +13,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'setting',
+    path: 'settings',
     loadChildren: () =>
       import('./settings/setting.module').then((m) => m.SettingModule),
   },

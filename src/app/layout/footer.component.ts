@@ -29,7 +29,7 @@ export class FooterComponent implements OnInit, OnDestroy {
           tooltipPosition: "left"
         },
         icon: 'pi pi-pencil',
-        routerLink:'/setting/city',
+        routerLink:'/settings/city',
         command: () => {
           // this.messageService.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
         }
@@ -40,7 +40,7 @@ export class FooterComponent implements OnInit, OnDestroy {
           tooltipLabel: "Barangay",
           tooltipPosition: "left"
         },
-        routerLink:'/setting/barangay',
+        routerLink:'/settings/barangay',
         command: () => {
           // this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
         }
@@ -55,7 +55,7 @@ export class FooterComponent implements OnInit, OnDestroy {
           tooltipLabel: "Pawner",
           tooltipPosition: "left"
         },
-        routerLink:'/setting/pawner',
+        routerLink:'/settings/pawner',
       },
 
       {

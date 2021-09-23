@@ -1,7 +1,6 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AddAddress } from '../_models/addAddress';
 import { AddPawner } from '../_models/addPawer';
@@ -24,12 +23,14 @@ export class PawnerComponent implements OnInit {
   barangays: Barangay[] = [];
   cityBarangay = [];
   isAdd: boolean = true;
+  isQueryFromNewloan:boolean;
   constructor(
     private addressService: AddressService,
     private pawnerService: PawnerService,
     private messageService: MessageService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private activatedRoute:ActivatedRoute
   ) {
     this.pawnerForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -43,6 +44,19 @@ export class PawnerComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCityBarangay();
+    //check if the query url is from newloan
+    this.activatedRoute.queryParams.subscribe(query => {
+          this.isQueryFromNewloan = query.newpanwer;
+        if(this.isQueryFromNewloan) 
+        setTimeout(() => {
+          this.messageService.add({
+            severity: 'warn',
+            summary: 'No Pawner Exist!',
+            detail: 'Create new Pawner...',
+          });  
+        }, 100);
+    });
+    
     this.pawnerForm.valueChanges.subscribe(() => {
       this.isAdd = !this.pawnerForm.valid;
     });

@@ -1,3 +1,4 @@
+import { query } from '@angular/animations';
 import {
   Component,
   ElementRef,
@@ -46,9 +47,8 @@ export class CardDialogComponent implements OnInit, OnDestroy {
   }
 
   submit() {
-    console.log();
-    this.router.navigateByUrl('/transactions/' + `${this.transactionType}`, {
-      state: this.cardForm.controls.telOrTrsansNumber.value
+    this.router.navigate(['/transactions/' + `${this.transactionType}`], {
+      queryParams: { search: this.cardForm.controls.telOrTrsansNumber.value }
     });
 
     this.dialogRef.close();
