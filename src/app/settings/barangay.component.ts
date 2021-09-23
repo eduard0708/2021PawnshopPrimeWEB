@@ -13,7 +13,7 @@ import { AddressService } from '../_services/address.service';
 })
 export class BarangayComponent implements OnInit {
   @ViewChild('dropDownRef') dropDownRef;
-  cityForm: FormGroup;
+  barangayForm: FormGroup;
   cityName: string;
   cityDataSource: City[] = [];
   isAddCity: boolean = true;
@@ -26,8 +26,9 @@ export class BarangayComponent implements OnInit {
     private router: Router,
     private messageService: MessageService
   ) {
-    this.cityForm = this.fb.group({
-      cityName: ['', Validators.required],
+    this.barangayForm = this.fb.group({
+      selectedCity:[Validators.required],
+      barangayName: ['', Validators.required],
     });
   }
 
@@ -38,21 +39,20 @@ export class BarangayComponent implements OnInit {
     this.primeConfig.ripple = true;
     this.loadCities();
 
-    this.cityForm.controls.cityName.valueChanges.subscribe(() => {
-      this.isAddCity = !this.cityForm.valid;
+    this.barangayForm.valueChanges.subscribe(() => {
+      this.isAddCity = !this.barangayForm.valid;
     });
   }
 
   reset() {
-    this.cityForm.controls.cityName.setValue('');
-    this.cityForm.reset();
+    this.barangayForm.reset();
     this.dropDownRef.focus();
   }
 
   add() {
-    if (this.cityForm.controls.cityName.value !== null || '') {
+    if (this.barangayForm.controls.cityName.value !== null || '') {
       let addCity = {
-        cityName: this.cityForm.controls.cityName.value,
+        cityName: this.barangayForm.controls.cityName.value,
       };
       this.addressService.addCity(addCity).subscribe((city) => {
         const newCity: City = city as City;
@@ -64,8 +64,8 @@ export class BarangayComponent implements OnInit {
           });
       });
     }
-    this.cityForm.controls.cityName.setValue('');
-    this.cityForm.reset();
+    this.barangayForm.controls.cityName.setValue('');
+    this.barangayForm.reset();
     this.dropDownRef.focus();
     this.cityDataSource = [];
     this.loadCities();

@@ -1,12 +1,12 @@
 <div class="barangay-wrapper">
-  <form [formGroup]="cityForm" autocomplete="off">
+  <form [formGroup]="barangayForm" autocomplete="off">
     <div class="barangay-body box shadow-8">
       <div class="barangay-header bg-primary shadow-5 text-base">
         <h3>Barangay Settings</h3>
       </div>
       <div class="barangay-content">
         <div class="p-field pt-5">
-          <p-dropdown class="pdd"
+          <p-dropdown
             [autofocus]="true"
             #dropDownRef
             id="cityDropDown"
@@ -29,11 +29,11 @@
         <div class="p-field p-col-12 p-md-4 pt-5">
           <span class="p-float-label">
             <input
-              #cityRef
+              #barangayRef
               type="text"
               id="city"
               pInputText
-              formControlName="cityName"
+              formControlName="barangayName"
             />
             <label for="city">Barangay Name</label>
           </span>

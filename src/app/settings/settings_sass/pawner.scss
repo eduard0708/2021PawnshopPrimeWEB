@@ -1,0 +1,49 @@
+form {
+  transform: scale(0.85);
+  margin-top: 3rem;
+  .pawner-body {
+    margin: 0 auto ;
+    padding: 0 1rem;
+    max-width: 50%;
+    
+    .pawner-header {
+      border-radius: 5px;
+      position: relative;
+      margin: -3.5rem auto 0;
+      width: 95%;
+      text-align: center;
+      h3 {
+        font-family: monospace;
+        padding: 0.5rem;
+      }
+    }
+    .pawner-content {
+      .pawner-info{
+        margin: 3rem auto 0;
+        width: 100%;
+        column-gap: .8rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;  
+      }
+      .pawner-address{
+        margin: 3rem auto 0;
+        width: 100%;
+        column-gap: .8rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;  
+      }
+    }
+    .pawner-footer{
+      display: grid;
+      margin: 0 auto ;
+      padding: 2rem;
+      width: 80%;
+      column-gap: .8rem;
+      grid-template-columns: 1fr 1fr 1fr;  
+    }
+  }
+}
+
+:host ::ng-deep .address-drop.p-dropdown {
+  width: 100%;
+}

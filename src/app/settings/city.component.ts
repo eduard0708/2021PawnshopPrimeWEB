@@ -38,7 +38,7 @@ export class CityComponent implements OnInit {
     this.primeConfig.ripple = true;
     this.loadCities();
 
-    this.cityForm.controls.cityName.valueChanges.subscribe(() => {
+    this.cityForm.valueChanges.subscribe(() => {
       this.isAddCity = !this.cityForm.valid;
     });
   }

@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: SettingComponent },
   { path: 'city', component: CityComponent },
   { path: 'barangay', component: BarangayComponent },
-  { path: 'panwer', component: PawnerComponent },
+  { path: 'pawner', component: PawnerComponent },
 ];
 
 @NgModule({

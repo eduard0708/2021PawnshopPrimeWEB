@@ -1,1 +1,114 @@
-<p>pawner works!</p>
+<form autocomplete="off">
+  <div class="pawner-body box shadow-8">
+    <div class="pawner-header bg-primary shadow-5 text-base">
+      <h3>Pawner Settings</h3>
+    </div>
+    <div class="pawner-content">
+      <div class="pawner-info">
+        <div class="p-inputgroup p-inputtext-sm">
+          <span class="p-float-label">
+            <input type="text" id="inputtext" pInputText />
+            <label for="inputtext">First Name</label>
+          </span>
+        </div>
+        <div class="p-inputgroup p-inputtext-sm">
+          <span class="p-float-label">
+            <input type="text" id="inputtext" pInputText />
+            <label for="inputtext">Last Name</label>
+          </span>
+        </div>
+        <div class="p-inputgroup p-inputtext-sm">
+          <span class="p-float-label">
+            <input type="text" id="inputtext" pInputText />
+            <label for="inputtext">Contact Number</label>
+          </span>
+        </div>
+      </div>
+      <div class="pawner-address">
+        <div class="p-inputgroup p-inputtext-sm">
+          <span class="p-float-label">
+            <p-dropdown
+              [autoDisplayFirst]="false"
+              [options]="cities"
+              styleClass="address-drop"
+              optionLabel="cityName"
+              [filter]="true"
+              filterBy="cityName"
+              [showClear]="true"
+            >
+              <ng-template let-city pTemplate="item">
+                <div class="city-item">
+                  <div>{{ city.cityName }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+            <label for="dropdown">City</label>
+          </span>
+        </div>
+        <div class="p-inputgroup p-inputtext-sm">
+          <span class="p-float-label">
+            <p-dropdown
+              [autoDisplayFirst]="false"
+              [options]="cities"
+              styleClass="address-drop"
+              optionLabel="cityName"
+              [filter]="true"
+              filterBy="cityName"
+              [showClear]="true"
+            >
+              <ng-template let-city pTemplate="item">
+                <div class="city-item">
+                  <div>{{ city.cityName }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+            <label for="dropdown">Barangay</label>
+          </span>
+        </div>
+        <div class="p-inputgroup p-inputtext-sm">
+          <span class="p-float-label">
+            <input type="text" id="inputtext" pInputText />
+            <label for="inputtext">Complete Address</label>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="pawner-footer">
+        <div class="p-inputgroup">
+            <button
+            (click)="save()"
+            pButton
+            pRipple
+            icon="pi pi-save"
+            styleClass=""
+            type="button"
+            label="Save"
+            class="p-button-rounded p-button-success"
+          ></button>
+          </div>
+        <div>
+          <button
+            (click)="reset()"
+            pButton
+            pRipple
+            icon="pi pi-refresh"
+            styleClass="p-button-sm"
+            type="button"
+            label="Reset"
+            class="p-button-rounded p-button-info"
+          ></button>
+        </div>
+        <div>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-home"
+            styleClass="p-button-sm"
+            type="button"
+            label="Home"
+            class="p-button-rounded p-button-primary"
+          ></button>
+        </div>
+      </div>
+  </div>
+</form>

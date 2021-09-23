@@ -43,20 +43,19 @@ export class FooterComponent implements OnInit, OnDestroy {
         routerLink:'/setting/barangay',
         command: () => {
           // this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
-     
         }
-
       },
       {
         icon: 'pi pi-trash',
         command: () => {
           // this.messageService.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
-          this.showPawner();
+          // this.showPawner();
         },
         tooltipOptions: {
           tooltipLabel: "Pawner",
           tooltipPosition: "left"
         },
+        routerLink:'/setting/pawner',
       },
 
       {
