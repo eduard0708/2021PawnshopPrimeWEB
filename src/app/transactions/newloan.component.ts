@@ -9,26 +9,35 @@ import { TransactionsService } from '../_services/transactions.service';
   providers: [MessageService],
 })
 export class NewloanComponent implements OnInit {
-  pawner = [];
+  listPawner = [];
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private transactionsService: TransactionsService,
     private messageService: MessageService
-  ) {}
+  ) {
+    if(this.router.getCurrentNavigation().extras.state){
+      const newPawner = this.router.getCurrentNavigation().extras.state.pawner as any
+      console.log(newPawner);
+    }
+  }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((data) => {
-      this.transactionsService
+      //check if the query string is undefine of not
+      if(Object.keys(data).length > 0){
+       this.transactionsService
         .getPawnerByContact(data.search)
         .subscribe((data) => {
-          this.pawner = [...(data as any)];
-          if (this.pawner.length == 0) {
+          this.listPawner = [...(data as any)];
+          if (this.listPawner.length == 0) {
             this.router.navigate(['/settings/pawner'], {
               queryParams: { newpanwer: true },
             });
           }
         });
+      }
     });
+  
   }
 }

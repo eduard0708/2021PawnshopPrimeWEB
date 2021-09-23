@@ -23,14 +23,15 @@ export class PawnerComponent implements OnInit {
   barangays: Barangay[] = [];
   cityBarangay = [];
   isAdd: boolean = true;
-  isQueryFromNewloan:boolean;
+  isQueryFromNewloan: boolean;
+  newPawner: Pawner;
   constructor(
     private addressService: AddressService,
     private pawnerService: PawnerService,
     private messageService: MessageService,
     private fb: FormBuilder,
     private router: Router,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute: ActivatedRoute
   ) {
     this.pawnerForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -45,18 +46,18 @@ export class PawnerComponent implements OnInit {
   ngOnInit(): void {
     this.loadCityBarangay();
     //check if the query url is from newloan
-    this.activatedRoute.queryParams.subscribe(query => {
-          this.isQueryFromNewloan = query.newpanwer;
-        if(this.isQueryFromNewloan) 
+    this.activatedRoute.queryParams.subscribe((query) => {
+      this.isQueryFromNewloan = query.newpanwer;
+      if (this.isQueryFromNewloan)
         setTimeout(() => {
           this.messageService.add({
             severity: 'warn',
             summary: 'No Pawner Exist!',
             detail: 'Create new Pawner...',
-          });  
+          });
         }, 100);
     });
-    
+
     this.pawnerForm.valueChanges.subscribe(() => {
       this.isAdd = !this.pawnerForm.valid;
     });
@@ -80,15 +81,19 @@ export class PawnerComponent implements OnInit {
     this.pawnerService
       .addPawner(this.convertPawner(this.pawnerForm.value))
       .subscribe((pawner) => {
-        const newPawner:Pawner = pawner;
-          this.messageService.add({
-            severity: 'success',
-            summary: 'New Pawner Added',
-            detail: `${newPawner.firstName} ${newPawner.lastName}`
+        this.newPawner = pawner;
+        this.messageService.add({
+          severity: 'success',
+          summary: 'New Pawner Added',
+          detail: `${this.newPawner.firstName} ${this.newPawner.lastName}`,
+        });
+        this.pawnerForm.reset();
+        this.firstNameRef.nativeElement.focus();
+        if (this.isQueryFromNewloan)
+          this.router.navigateByUrl('/transactions/newloan', {
+            state: { pawner: this.newPawner },
           });
       });
-      this.pawnerForm.reset();
-      this.firstNameRef.nativeElement.focus();
   }
 
   addCity() {
@@ -99,7 +104,7 @@ export class PawnerComponent implements OnInit {
     this.pawnerForm.reset();
     this.firstNameRef.nativeElement.focus();
   }
-  
+
   home() {
     this.router.navigateByUrl('');
   }
@@ -111,7 +116,7 @@ export class PawnerComponent implements OnInit {
       barangayName: pawner.barangay.barangayName,
       completeAddress: pawner.completeAddress,
     };
-    const telnumber = (pawner.contactNumber).replace(/\D/g,'');
+    const telnumber = pawner.contactNumber.replace(/\D/g, '');
     const newpawner: AddPawner = {
       firstName: pawner.firstName,
       lastName: pawner.lastName,
