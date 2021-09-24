@@ -12,6 +12,7 @@ import { TransactionsService } from '../_services/transactions.service';
 export class NewloanComponent implements OnInit {
   listPawner = [];
   value9=1000312.20
+  isSave:boolean = false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -39,7 +40,13 @@ export class NewloanComponent implements OnInit {
           }
         });
       }
-    });
-  
+    }); 
   }
+
+  save(){}
+  reset(){}
+  home(){
+    this.router.navigateByUrl('dashboard')
+  }
+
 }
