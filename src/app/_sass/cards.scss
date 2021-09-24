@@ -67,6 +67,16 @@
 }
 //card dialog end
 
+//card panwer information start
+.pawner-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr .7fr .7fr;   
+    column-gap: 1rem;
+    row-gap: 2rem;
+}
+
+// card panwer information end
+
 //remove button spinner in input number
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,

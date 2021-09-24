@@ -24,6 +24,7 @@ import { DialogBarangayComponent } from './_dialogs/dialog.barangay.component';
 import { DialogPawnerComponent } from './_dialogs/dialog.pawner.component';
 import { CardMenuComponent } from './_cards/card.menu.component';
 import { CardDialogComponent } from './_cards/card.dialog.component';
+import { CardPawerInformationComponent } from './_cards/card.pawer.information.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { CardDialogComponent } from './_cards/card.dialog.component';
     DialogPawnerComponent,
     CardMenuComponent,
     CardDialogComponent,
+    CardPawerInformationComponent,
 
   ],
   imports: [

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './pages/login.component';
 import { CardDialogComponent } from './_cards/card.dialog.component';
+import { CardPawerInformationComponent } from './_cards/card.pawer.information.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
   },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', component: DashboardComponent },
+  { path: '', component: CardPawerInformationComponent },
 ];
 
 @NgModule({

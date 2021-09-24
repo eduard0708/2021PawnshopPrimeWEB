@@ -34,6 +34,7 @@ export class CardDialogComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     //take the data from the dashboard thru configuration of dynamicDialogConfig
+    //to be append to the router link
     this.transactionType = this.dialogData.data.transactionType
       .replace(/\s/g, '')
       .toLowerCase();
@@ -53,6 +54,8 @@ export class CardDialogComponent implements OnInit, OnDestroy {
 
     this.dialogRef.close();
   }
+
+
   reset() {
     this.cardForm.reset();
     this.telOrTrsansNumberRef.nativeElement.focus();

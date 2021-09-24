@@ -1,4 +1,152 @@
-<p>newloan works!</p>
+<div class="newloan-wrapper">
+<!--start newloan pawner and items body  -->
+<div class="newloan-pawner-body">
+    <div class="pawner-info box shadow-3">
+      <app-card-pawer-information></app-card-pawer-information>
+    </div>
+    <!-- items body start -->
+    <div class="items-body box shadow-3">
+      <div>
+        <span class="p-float-label">
+          <p-dropdown
+            [autofocus]="true"
+            #dropDownRef
+            id="cityDropDown"
+            styleClass="p-inputgroup p-inputtext-sm"
+            [options]=""
+            optionLabel="cityName"
+            [filter]="true"
+            filterBy="cityName"
+            [showClear]="true"
+          >
+            <ng-template let-city pTemplate="item">
+              <div class="city-item">
+                <div>{{ city.cityName }}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+          <label for="inputtext">Select Category </label>
+        </span>
+      </div>
+      <div>
+        <span class="p-float-label">
+          <p-dropdown
+            [autofocus]="true"
+            #dropDownRef
+            id="cityDropDown"
+            styleClass="p-inputgroup p-inputtext-sm"
+            [options]=""
+            optionLabel="cityName"
+            [filter]="true"
+            filterBy="cityName"
+            [showClear]="true"
+          >
+            <ng-template let-city pTemplate="item">
+              <div class="city-item">
+                <div>{{ city.cityName }}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+          <label for="inputtext">Select Description </label>
+        </span>
+      </div>
+      <div class="p-inputgroup p-inputtext-sm">
+        <span class="p-float-label">
+          <input #firstNameRef type="text" id="inputtext" pInputText />
+          <label for="inputtext">Items Description</label>
+        </span>
+      </div>
+    </div>
+    <!-- items body end -->
+    <!-- items table start -->
+    <div class="items-table box shadow-3">
+      <p-table
+        #ptable
+        [value]=""
+        styleClass="p-datatable-sm"
+        [showCurrentPageReport]="true"
+        [paginator]="true"
+        [rows]="5"
+        [globalFilterFields]="['cityId', 'cityName']"
+      >
+        <ng-template pTemplate="header">
+          <tr style="height: 3.2rem">
+            <th style="max-width: 15%">Id</th>
+            <th style="max-width: 50%">City Name</th>
+            <th style="max-width: 25%; text-align: center">Action</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-city>
+          <tr>
+            <td style="max-width: 3rem">{{ city.cityId }}</td>
+            <td style="">{{ city.cityName }}</td>
+            <td style="padding-left: 5rem">
+              <button
+                tabindex="-1"
+                pButton
+                pRipple
+                icon="pi pi-pencil"
+                class="p-button-rounded p-button-info mr-2"
+              ></button>
+              <button
+                tabindex="-1"
+                pButton
+                pRipple
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <!-- items table start -->
+  </div>
+  <!--end newloan pawner and items body  -->
+  
+  <!-- start newloan computation body -->
+  <div class="newloan-computation-body">
+      <div class="computation-header">
+          <h4>NEWLOAN COMPUTATION</h4>
+      </div>
+ 
+    <div class="p-inputgroup p-inputtext-sm">
+       <span class="label-span">Apprasal Value</span>
+        <p-inputNumber  [maxlength]="14" class="input-number" inputId="currency-php" mode="currency" currency="PHP" locale="en-US">
+        </p-inputNumber>
+    </div>
+    <div class="p-inputgroup p-inputtext-sm">
+       <span class="label-span">Principal Loan</span>
+        <p-inputNumber [maxlength]="14" class="input-number" [(ngModel)]="value9" inputId="currency-php" mode="currency" currency="PHP" locale="en-US">
+        </p-inputNumber>
+    </div>
+    <div class="p-inputgroup p-inputtext-sm">
+       <span class="label-span">Interest Rate</span>
+        <p-inputNumber [maxlength]="14" class="input-number" [(ngModel)]="value9" inputId="currency-php" mode="currency" currency="PHP" locale="en-US">
+        </p-inputNumber>
+    </div>
+    <div class="p-inputgroup p-inputtext-sm">
+       <span class="label-span">Advance Interest</span>
+        <p-inputNumber [maxlength]="14" class="input-number" [(ngModel)]="value9" inputId="currency-php" mode="currency" currency="PHP" locale="en-US">
+        </p-inputNumber>
+    </div>
+    <div class="p-inputgroup p-inputtext-sm">
+       <span class="label-span">Adv. Service Charge</span>
+        <p-inputNumber [maxlength]="14" class="input-number" [(ngModel)]="value9" inputId="currency-php" mode="currency" currency="PHP" locale="en-US">
+        </p-inputNumber>
+    </div>
+    <div class="p-inputgroup p-inputtext-sm">
+       <span class="label-span">Net Proceed</span>
+        <p-inputNumber [maxlength]="14" class="input-number" [(ngModel)]="value9" inputId="currency-php" mode="currency" currency="PHP" locale="en-US">
+        </p-inputNumber>
+    </div>
+
+  
+  </div>
+  <!-- end newloan computation body -->
+  
+</div>
+<!--ends  newloan wrapper -->
 
 
 <p-toast position="top-right"></p-toast>

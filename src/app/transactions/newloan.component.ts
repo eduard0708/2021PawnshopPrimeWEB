@@ -6,10 +6,12 @@ import { TransactionsService } from '../_services/transactions.service';
 @Component({
   selector: 'app-newloan',
   templateUrl: './newloan.component.html',
+  styleUrls:['transactions_sass/newloan.scss'],
   providers: [MessageService],
 })
 export class NewloanComponent implements OnInit {
   listPawner = [];
+  value9=1000312.20
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
